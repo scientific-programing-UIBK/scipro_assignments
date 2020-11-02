@@ -23,7 +23,7 @@ if __name__ == '__main__':
     import datetime
     from math import sqrt
     from math import pi
-    
+    t = []
     n = [1e2, 1e3, 1e4, 1e5, 1e6, 1e7] #int(input("Give a number of points: "))
     for N in n:
         c = 0
@@ -38,3 +38,10 @@ if __name__ == '__main__':
         t1 = datetime.datetime.now()
         print("N = " + str(int(N)) + "; pi ~= " + str(pi_aprox) + 
               "; |pi - pi_aprox| = " + str(diff) + "; time = " + str(t1-t0))
+        t.append((t1-t0).microseconds)
+    import matplotlib.pyplot as plt
+    import numpy as np
+    x = np.log10(n)
+    plt.plot(x, t)
+    plt.plot(x, t)
+    
